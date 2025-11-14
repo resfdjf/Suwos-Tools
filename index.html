@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suwos - 实用工具集合</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+<script src="theme.js" defer></script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Suwos Tools</a>
+            <ul class="nav-links">
+                <li class="active"><a href="index.html">首页</a></li>
+                <li><a href="reaction-test.html">反应速度测试</a></li>
+                <li><a href="#">更多工具 <i class="arrow down"></i></a>
+                    <ul class="dropdown">
+                        <li><a href="converter.html">编码转换器</a></li>
+                        <li><a href="rollcall.html">班级点名系统</a></li>
+                        <li><a href="#">工具开发中...</a></li>
+                    </ul>
+                </li>
+                <li><a href="#about">关于我们</a></li>
+            </ul>
+<!-- 在 .nav-container 中添加（所有页面都要加） -->
+<div class="theme-toggle">
+    <button id="theme-btn" class="btn theme-btn">
+        <i class="theme-icon">🌙</i>
+    </button>
+</div>
+        </div>
+    </nav>
+
+    <!-- 苹果官网风格宣传区（全屏单栏滚动） -->
+    <section class="apple-style-hero">
+<!-- 反应速度测试宣传（第一屏） -->
+<div class="hero-section">
+    <div class="container hero-content">
+        <h1>反应速度测试</h1>
+        <p>挑战极限，精准记录每一次反应。为游戏、运动或日常提升，提供科学的训练参考。</p>
+        <a href="reaction-test.html" class="btn cta-btn">立即测试</a>
+    </div>
+    <!-- 调整图片容器 -->
+    <div class="hero-image-wrapper">
+        <div class="image-overlay"></div>
+        <img src="reaction-test.png" alt="反应速度测试" class="hero-img">
+    </div>
+</div>
+<!-- 编码转换器宣传（第二屏） -->
+<div class="hero-section">
+    <div class="container hero-content">
+        <h1>编码格式转换器</h1>
+        <p>一键解决文本乱码，支持 GBK、UTF-8、ASCII 等多种编码互转，高效处理跨编码场景。</p>
+        <a href="converter.html" class="btn cta-btn inverse-btn">立即使用</a>
+    </div>
+    <!-- 带遮罩的图片区域 -->
+    <div class="hero-image-wrapper">
+        <div class="image-overlay"></div> 
+        <img src="converter.png" alt="编码转换器" class="hero-img">
+    </div>
+</div>    </section>
+
+    <!-- 特性/优势区域 -->
+    <section class="features">
+        <div class="container">
+            <h2>为什么选择我们的工具？</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="icon">⚡</i>
+                    <h3>精准测量</h3>
+                    <p>以毫秒为单位，精确记录你的每一次反应。</p>
+                </div>
+                <div class="feature-item">
+                    <i class="icon">🔄</i>
+                    <h3>多编码支持</h3>
+                    <p>GBK、UTF-8、ASCII 等多种编码格式自由转换。</p>
+                </div>
+                <div class="feature-item">
+                    <i class="icon">🎮</i>
+                    <h3>趣味挑战</h3>
+                    <p>简洁有趣的测试过程，让训练不再枯燥。</p>
+                </div>
+                <div class="feature-item">
+                    <i class="icon">🛠️</i>
+                    <h3>简单易用</h3>
+                    <p>直观的界面设计，无需专业知识即可快速上手。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 关于我们 -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>关于 Suwos Tools</h2>
+            <p>Suwos Tools 致力于开发简单、实用且有趣的在线工具，帮助用户提升生活与工作效率。我们相信科技应该服务于人，让复杂的事情变得简单。</p>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>Suwos Tools</h3>
+                <p>让工具更懂你</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="reaction-test.html">反应速度测试</a></li>
+                    <li><a href="converter.html">编码转换器</a></li>
+                    <li><a href="rollcall.html">班级点名系统</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>资源</h4>
+                <ul>
+                    <li><a href="#">使用条款</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li><a href="mailto:support@suwos.example.com">support@suwos.example.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Suwos Tools. 保留所有权利。</p>
+        </div>
+    </footer>
+
+</body>
+</html>

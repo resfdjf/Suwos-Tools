@@ -1,0 +1,1441 @@
+/* ==================================================
+   基础样式 (全局通用)
+================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 标题样式 */
+h1, h2, h3, h4 {
+    margin-bottom: 1rem;
+    color: #2d3748;
+    line-height: 1.2;
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2rem; text-align: center; margin: 2rem 0; }
+h3 { font-size: 1.5rem; }
+
+/* 段落与链接 */
+p { margin-bottom: 1rem; }
+
+a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* ==================================================
+   按钮样式 (核心修复：明亮/夜间模式都正常)
+================================================== */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    /* 明亮模式默认样式 */
+    background-color: #1a73e8;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: #0d47a1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+}
+
+/* 反向按钮（深色背景区域用） */
+.inverse-btn {
+    background-color: #2d3748;
+    color: #fff;
+}
+
+.inverse-btn:hover {
+    background-color: #1a202c;
+}
+
+/* 次要按钮（浅背景、辅助操作） */
+.secondary-btn {
+    background-color: #f1f3f4;
+    color: #333;
+}
+
+.secondary-btn:hover {
+    background-color: #e8eaed;
+    color: #000;
+}
+
+/* 主题切换按钮（单独样式） */
+.theme-btn {
+    padding: 8px 12px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.theme-btn:hover {
+    background-color: #e8eaed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ==================================================
+   导航栏样式 (所有页面通用)
+================================================== */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    position: relative;
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: #333;
+    font-weight: 500;
+    padding: 10px 0;
+}
+
+.nav-links a:hover, .nav-links li.active a {
+    color: #1a73e8;
+}
+
+/* 下拉菜单 */
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -20px;
+    background-color: #fff;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1001;
+    list-style: none;
+}
+
+.dropdown li { margin: 0; padding: 0 20px; }
+.dropdown a { 
+    display: block; 
+    padding: 10px 20px; 
+    color: #666; 
+}
+.dropdown a:hover { 
+    background-color: #f5f5f5; 
+    color: #1a73e8; 
+}
+
+.nav-links li:hover .dropdown { display: block; }
+
+/* 箭头图标 */
+.arrow {
+    border: solid #333;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-left: 5px;
+}
+
+.right { transform: rotate(-45deg); }
+.down { transform: rotate(45deg); }
+
+/* 主题切换按钮容器 */
+.theme-toggle {
+    margin-left: 20px;
+}
+
+/* ==================================================
+   主页样式 (苹果风格宣传区)
+================================================== */
+.apple-style-hero {
+    margin-top: 70px; /* 避开导航栏 */
+}
+
+/* 全屏区块 */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding: 120px 20px 60px;
+    position: relative;
+}
+
+/* 交替背景色 */
+.hero-section.inverse {
+    background-color: #f8f9fa;
+}
+
+/* 文字内容区 */
+.hero-content {
+    z-index: 10;
+    max-width: 700px;
+    margin-bottom: 40px;
+}
+
+.hero-content h1 {
+    color: #1a73e8;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* 主按钮样式 */
+.cta-btn {
+    border-radius: 30px;
+    padding: 14px 32px;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(26, 115, 232, 0.3);
+}
+
+/* 图片容器 */
+.hero-image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: auto;
+}
+
+/* 图片样式 */
+.hero-img {
+    max-width: 50%;
+    max-height: 50vh;
+    height: auto;
+    object-fit: contain;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    transition: transform 0.5s ease;
+}
+
+/* 磨砂遮罩 */
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(2px);
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.hero-image-wrapper:hover .image-overlay {
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+}
+
+.hero-image-wrapper:hover .hero-img {
+    transform: scale(1.02);
+}
+
+/* ==================================================
+   主页特性区域
+================================================== */
+.features {
+    padding: 80px 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.icon {
+    font-size: 3rem;
+    color: #1a73e8;
+    margin-bottom: 20px;
+}
+
+/* ==================================================
+   关于我们区域
+================================================== */
+.about {
+    background-color: #f8f9fa;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.about p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* ==================================================
+   页脚样式 (所有页面通用)
+================================================== */
+.footer {
+    background-color: #2d3748;
+    color: #fff;
+    padding: 60px 0 20px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3, .footer-col h4 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col li {
+    margin-bottom: 10px;
+}
+
+.footer-col a {
+    color: #a0aec0;
+}
+
+.footer-col a:hover {
+    color: #fff;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #4a5568;
+    color: #a0aec0;
+    font-size: 0.9rem;
+}
+
+/* ==================================================
+   反应速度测试页面样式
+================================================== */
+.full-screen-body {
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+}
+
+/* 测试页导航栏动画 */
+.test-nav {
+    transform: translateY(-100%);
+    transition: transform 0.5s ease-in-out;
+}
+
+body.show-nav .test-nav {
+    transform: translateY(0);
+}
+
+/* 测试区域 */
+.test-area {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    padding-top: 80px;
+}
+
+.test-area.active { background-color: #34a853; } /* 绿色 - 可点击 */
+.test-area.waiting { background-color: #fbbc05; } /* 黄色 - 等待 */
+
+#status {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 25px;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.start-btn {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+}
+
+/* 返回主页按钮 */
+.home-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(66, 133, 244, 0.9);
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    z-index: 100;
+    color: white;
+}
+
+/* ==================================================
+   编码转换器页面样式
+================================================== */
+.tool-container {
+    padding: 120px 20px 60px;
+    max-width: 900px;
+}
+
+.tool-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.tool-header h1 {
+    font-size: 2.5rem;
+    color: #1a73e8;
+}
+
+.tool-header p {
+    font-size: 1.1rem;
+    color: #5f6368;
+}
+
+/* 转换器主体 */
+.converter-tool {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 输入输出区域 */
+.input-area, .output-area {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #2d3748;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dadce0;
+    border-radius: 6px;
+    font-size: 1rem;
+    line-height: 1.5;
+    resize: vertical;
+    min-height: 150px;
+    background-color: #fff;
+    color: #333;
+}
+
+textarea[readonly] {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* 编码选择控件 */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.encoding-selector {
+    flex: 1;
+}
+
+select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #dadce0;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 1rem;
+    color: #2d3748;
+    appearance: none;
+    /* 明亮模式下拉箭头图标（深色） */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+}
+
+/* 交换按钮 */
+.swap-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+}
+
+.swap-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #1a73e8;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.swap-btn:hover {
+    background-color: rgba(26, 115, 232, 0.1);
+}
+
+.arrow.swap {
+    border-color: #1a73e8;
+    transform: rotate(90deg);
+}
+
+/* 操作按钮 */
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* ==================================================
+   弹窗样式 (反应速度测试用)
+================================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover, .close-btn:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.modal h2 {
+    color: #1a73e8;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+#modal-reaction-time {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #1a73e8;
+    margin: 20px 0;
+}
+
+#modal-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 30px 0;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.stat-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin: 10px;
+    min-width: 120px;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+#modal-ok-btn {
+    margin-top: 15px;
+}
+
+/* ==================================================
+   夜间模式样式 (关键适配)
+================================================== */
+.dark body {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4 {
+    color: #f0f0f0;
+}
+
+.dark p {
+    color: #ccc;
+}
+
+/* 导航栏夜间模式 */
+.dark .navbar {
+    background-color: rgba(26, 26, 26, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark .nav-links a {
+    color: #f0f0f0;
+}
+
+.dark .dropdown {
+    background-color: #2d2d2d;
+}
+
+.dark .dropdown a {
+    color: #ccc;
+}
+
+.dark .dropdown a:hover {
+    background-color: #3d3d3d;
+    color: #f0f0f0;
+}
+
+/* 按钮夜间模式 */
+.dark .btn {
+    background-color: #4285f4;
+    color: #fff;
+}
+
+.dark .btn:hover {
+    background-color: #3367d6;
+}
+
+.dark .inverse-btn {
+    background-color: #444;
+    color: #f0f0f0;
+}
+
+.dark .inverse-btn:hover {
+    background-color: #555;
+}
+
+.dark .secondary-btn {
+    background-color: #2d2d2d;
+    color: #f0f0f0;
+}
+
+.dark .secondary-btn:hover {
+    background-color: #444;
+}
+
+.dark .theme-btn {
+    background-color: #2d2d2d;
+    color: #f0f0f0;
+}
+
+.dark .theme-btn:hover {
+    background-color: #444;
+}
+
+/* 主页宣传区夜间模式 */
+.dark .hero-section.inverse {
+    background-color: #2d2d2d;
+}
+
+.dark .hero-content p {
+    color: #ccc;
+}
+
+.dark .image-overlay {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.dark .hero-image-wrapper:hover .image-overlay {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* 特性区域夜间模式 */
+.dark .feature-item {
+    background-color: #2d2d2d;
+}
+
+.dark .icon {
+    color: #4285f4;
+}
+
+/* 关于我们夜间模式 */
+.dark .about {
+    background-color: #2d2d2d;
+}
+
+.dark .about p {
+    color: #ccc;
+}
+
+/* 转换器页面夜间模式 */
+.dark .converter-tool {
+    background-color: #2d2d2d;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dark textarea {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    border-color: #444;
+}
+
+.dark textarea[readonly] {
+    background-color: #2d2d2d;
+    color: #ccc;
+}
+
+.dark select {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    border-color: #444;
+    /* 夜间模式下拉箭头图标（浅色） */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ccc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.dark .swap-btn {
+    color: #4285f4;
+}
+
+.dark .arrow.swap {
+    border-color: #4285f4;
+}
+
+/* 测试页面夜间模式（核心修复） */
+.dark .full-screen-body {
+    background-color: #1a1a1a;
+}
+
+/* 保留测试区域的功能色，不被深色模式覆盖 */
+.dark .test-area {
+    background-color: #333; /* 黑暗模式默认背景（深灰，替代原来的浅灰） */
+}
+
+/* 关键：保留黄色等待和绿色可点击的功能色，增强对比度适配黑暗模式 */
+.dark .test-area.waiting {
+    background-color: #ffc107; /* 明亮黄色，黑暗模式下更醒目 */
+}
+
+.dark .test-area.active {
+    background-color: #4caf50; /* 明亮绿色，黑暗模式下更醒目 */
+}
+
+/* 黑暗模式下测试文字颜色调整（确保在黄色/绿色背景上清晰） */
+.dark .test-area #status {
+    color: #1a1a1a; /* 深色文字，在浅色功能背景上更清晰 */
+    text-shadow: none; /* 取消文字阴影，避免模糊 */
+}
+
+.dark .test-area.waiting #status,
+.dark .test-area.active #status {
+    color: #000; /* 黑色文字，与黄色/绿色形成强烈对比 */
+    font-weight: 700; /* 加粗文字，提高可读性 */
+}
+
+/* 弹窗夜间模式 */
+.dark .modal-content {
+    background-color: #2d2d2d;
+    border-color: #444;
+}
+
+.dark .close-btn {
+    color: #ccc;
+}
+
+.dark .close-btn:hover {
+    color: #f0f0f0;
+}
+
+.dark .modal h2 {
+    color: #4285f4;
+}
+
+.dark #modal-reaction-time {
+    color: #4285f4;
+}
+
+.dark #modal-stats {
+    background-color: #3d3d3d;
+}
+
+.dark .stat-item {
+    background-color: #2d2d2d;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.dark .stat-label {
+    color: #ccc;
+}
+
+/* ==================================================
+   响应式调整
+================================================== */
+@media (max-width: 992px) {
+    h1 { font-size: 2.8rem; }
+    .hero-content h1 { font-size: 2.8rem; }
+    .hero-content p { font-size: 1.2rem; }
+    .hero-img {
+        max-width: 70%;
+        max-height: 45vh;
+    }
+    .hero-section {
+        height: auto;
+        padding: 80px 20px 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+    }
+    .nav-links {
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+    .nav-links li {
+        margin: 0 15px;
+    }
+    .theme-toggle {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+    .hero-content h1 { font-size: 2.5rem; }
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .swap-btn-container {
+        padding: 10px 0;
+    }
+    .action-buttons {
+        justify-content: center;
+    }
+    .test-area {
+        padding-top: 120px;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 { font-size: 2.2rem; }
+    .hero-content h1 { font-size: 2.2rem; }
+    .hero-content p { font-size: 1.1rem; }
+    .hero-img {
+        max-width: 90%;
+        max-height: 40vh;
+    }
+    .cta-btn {
+        font-size: 1rem;
+        padding: 12px 24px;
+    }
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    #modal-reaction-time { font-size: 3rem; }
+    #modal-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* ==================================================
+   班级点名系统页面样式（完整修复版）
+================================================== */
+.rollcall-tool {
+    background-color: var(--card-bg);
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+/* 导入区域样式 */
+#import-section {
+    padding: 30px;
+}
+
+.import-section h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--text-color);
+}
+
+.import-options {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.option-card {
+    flex: 1 1 400px;
+    background-color: var(--light-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.option-card label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+#name-textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    resize: vertical;
+}
+
+.file-input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.option-card .btn {
+    width: 100%;
+}
+
+/* ==================================================
+   全屏点名模式样式（核心功能）
+================================================== */
+#fullscreen-rollcall {
+    display: none; /* 默认隐藏，导入后显示 */
+    flex-direction: column;
+    height: 85vh; /* 占满可视区域高度 */
+    width: 100%;
+    padding: 20px;
+    background-color: var(--bg-color);
+    position: relative;
+}
+
+/* 顶部控制栏 */
+.fullscreen-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    padding: 0 10px;
+}
+
+.fullscreen-controls .btn {
+    padding: 10px 20px;
+}
+
+/* 核心点名显示区（沾满中间空间） */
+.fullscreen-display {
+    flex: 1; /* 自动沾满剩余高度 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+}
+
+#fullscreen-current-name {
+    font-size: 8rem; /* 超大字体，醒目 */
+    font-weight: 700;
+    color: var(--accent-color);
+    text-align: center;
+    text-shadow: 0 5px 15px rgba(26, 115, 232, 0.2);
+    transition: all 0.3s ease;
+    line-height: 1.2;
+}
+
+/* 底部状态控制栏 */
+.fullscreen-status {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    padding: 0 10px;
+}
+
+.fullscreen-status .btn {
+    padding: 10px 20px;
+    flex: 0 1 auto;
+}
+
+/* 悬浮记录按钮 */
+.float-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 90;
+    padding: 0;
+    font-size: 1rem;
+}
+
+/* ==================================================
+   点名记录区域（毛玻璃特效+文字溢出修复）
+================================================== */
+#record-section {
+    display: none; /* 默认隐藏 */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    padding: 25px;
+    z-index: 100;
+    overflow-y: auto;
+    /* 毛玻璃核心特效 */
+    backdrop-filter: blur(12px) saturate(120%);
+    -webkit-backdrop-filter: blur(12px) saturate(120%);
+    background-color: rgba(255, 255, 255, 0.85); /* 明亮模式背景 */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* 夜间模式毛玻璃适配 */
+.dark #record-section {
+    background-color: rgba(26, 26, 26, 0.85); /* 夜间模式背景 */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.record-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.record-header h3 {
+    margin-bottom: 0;
+    color: var(--text-color);
+}
+
+/* 统计区域（文字溢出修复） */
+.record-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--light-bg);
+    border-radius: 8px;
+}
+
+.record-stats span {
+    font-size: 1rem;
+    color: var(--text-color);
+    word-break: break-all; /* 强制文字换行 */
+    overflow-wrap: anywhere; /* 智能处理长文本 */
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: var(--bg-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.record-stats strong {
+    color: var(--accent-color);
+    margin-left: 5px;
+}
+
+/* 名单列表（文字溢出修复） */
+.name-list {
+    max-height: 50vh;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    background-color: var(--bg-color);
+    margin-bottom: 20px;
+}
+
+.name-list ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+.name-list li {
+    padding: 10px 8px;
+    border-radius: 6px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    word-break: break-all; /* 学生姓名超长时换行 */
+    overflow-wrap: anywhere; /* 兼容所有浏览器 */
+    font-size: 0.95rem;
+}
+
+/* 名单状态样式 */
+.name-list li.pending {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+}
+
+.name-list li.present {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    font-weight: 500;
+}
+
+.name-list li.absent {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+    font-weight: 500;
+}
+
+/* 新增请假样式 */
+.name-list li.leave {
+    background-color: rgba(156, 39, 176, 0.2);
+    color: #9c27b0;
+    font-weight: 500;
+}
+
+.name-list li.late {
+    background-color: rgba(255, 152, 0, 0.2);
+    color: #ff9800;
+    font-weight: 500;
+}
+
+/* 夜间模式请假样式适配 */
+.dark .name-list li.leave {
+    background-color: rgba(156, 39, 176, 0.3);
+}
+
+/* 确保请假按钮在夜间模式正常显示 */
+.dark #fullscreen-leave {
+    background-color: #9c27b0 !important;
+    color: #fff !important;
+}
+
+.name-list li.late {
+    background-color: rgba(255, 152, 0, 0.2);
+    color: #ff9800;
+    font-weight: 500;
+}
+
+.name-list li.current {
+    border: 2px solid var(--accent-color);
+    font-weight: 600;
+    transform: scale(1.03);
+    box-shadow: 0 3px 8px rgba(26, 115, 232, 0.2);
+}
+
+.name-list li:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow);
+}
+
+#export-record {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 30px;
+}
+
+/* ==================================================
+   动画效果（确保生效）
+================================================== */
+@keyframes roll {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+
+/* 滚动动画应用 */
+.fullscreen-rollcall .rolling {
+    animation: roll 0.1s linear infinite;
+}
+
+/* 震动动画应用 */
+.fullscreen-rollcall .shaking {
+    animation: shake 0.5s ease;
+}
+
+/* ==================================================
+   响应式调整（确保所有设备适配）
+================================================== */
+@media (max-width: 992px) {
+    #fullscreen-current-name {
+        font-size: 6rem;
+    }
+
+    #fullscreen-rollcall {
+        height: 80vh;
+    }
+
+    .name-list ul {
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    #fullscreen-current-name {
+        font-size: 4rem;
+    }
+
+    .fullscreen-controls, .fullscreen-status {
+        gap: 10px;
+    }
+
+    .fullscreen-controls .btn,
+    .fullscreen-status .btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .float-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 0.9rem;
+    }
+
+    .record-stats {
+        gap: 10px;
+    }
+
+    .name-list ul {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+
+    #record-section {
+        padding: 15px;
+        max-height: 75vh;
+    }
+}
+
+@media (max-width: 576px) {
+    #fullscreen-current-name {
+        font-size: 3rem;
+    }
+
+    .fullscreen-controls {
+        flex-wrap: wrap;
+    }
+
+    .fullscreen-controls .btn {
+        flex: 1 1 45%;
+    }
+
+    .fullscreen-status {
+        flex-wrap: wrap;
+    }
+
+    .fullscreen-status .btn {
+        flex: 1 1 40%;
+    }
+
+    .import-options {
+        gap: 15px;
+    }
+
+    .option-card {
+        flex: 1 1 100%;
+    }
+
+    .name-list ul {
+        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    }
+
+    .record-stats span {
+        font-size: 0.9rem;
+        padding: 4px 8px;
+    }
+}
+
+/* ==================================================
+   夜间模式补充适配
+================================================== */
+.dark .fullscreen-rollcall {
+    background-color: var(--bg-color);
+}
+
+.dark #fullscreen-current-name {
+    color: var(--accent-color);
+    text-shadow: 0 5px 15px rgba(66, 133, 244, 0.3);
+}
+
+.dark .name-list li.present {
+    background-color: rgba(76, 175, 80, 0.3);
+}
+
+.dark .name-list li.absent {
+    background-color: rgba(244, 67, 54, 0.3);
+}
+
+.dark .name-list li.late {
+    background-color: rgba(255, 152, 0, 0.3);
+}
+
+.dark .record-stats span {
+    background-color: var(--light-bg);
+}
+
+.dark .name-list {
+    background-color: var(--light-bg);
+}
+
+/* 确保按钮在夜间模式正常显示 */
+.dark #fullscreen-present {
+    background-color: #4caf50 !important;
+    color: #fff !important;
+}
+
+.dark #fullscreen-absent {
+    background-color: #f44336 !important;
+    color: #fff !important;
+}
+
+.dark #fullscreen-late {
+    background-color: #ff9800 !important;
+    color: #fff !important;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编码转换器 - Suwos Tools</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+<script src="theme.js" defer></script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Suwos Tools</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="reaction-test.html">反应速度测试</a></li>
+                <li><a href="#">更多工具 <i class="arrow down"></i></a>
+                    <ul class="dropdown">
+                        <!-- 在这里替换一个“工具开发中”为我们的新工具 -->
+                        <li><a href="converter.html">编码转换器</a></li>
+                        <li><a href="rollcall.html">班级点名系统</a></li>
+                        <li><a href="#">工具开发中...</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#about">关于我们</a></li>
+            </ul>
+<!-- 在 .nav-container 中添加（所有页面都要加） -->
+<div class="theme-toggle">
+    <button id="theme-btn" class="btn theme-btn">
+        <i class="theme-icon">🌙</i>
+    </button>
+</div>
+        </div>
+    </nav>
+
+    <!-- 主要内容区 -->
+    <main class="container tool-container">
+        <header class="tool-header">
+            <h1>编码转换器</h1>
+            <p>轻松实现 GBK, UTF-8, ASCII 等编码格式之间的相互转换。</p>
+        </header>
+
+        <section class="converter-tool">
+            <div class="input-area">
+                <label for="source-text">输入文本:</label>
+                <textarea id="source-text" placeholder="请在此输入或粘贴需要转换的文本..."></textarea>
+            </div>
+
+            <div class="controls">
+                <div class="encoding-selector">
+                    <label for="from-encoding">从:</label>
+                    <select id="from-encoding">
+                        <option value="auto">自动检测</option>
+                        <option value="utf-8">UTF-8</option>
+                        <option value="gbk">GBK</option>
+                        <option value="gb2312">GB2312</option>
+                        <option value="ascii">ASCII</option>
+                    </select>
+                </div>
+
+                <div class="swap-btn-container">
+                    <button id="swap-btn" class="btn swap-btn"><i class="arrow swap"></i></button>
+                </div>
+
+                <div class="encoding-selector">
+                    <label for="to-encoding">到:</label>
+                    <select id="to-encoding">
+                        <option value="utf-8">UTF-8</option>
+                        <option value="gbk" selected>GBK</option>
+                        <option value="gb2312">GB2312</option>
+                        <option value="ascii">ASCII</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button id="convert-btn" class="btn primary-btn">转换</button>
+                <button id="clear-btn" class="btn secondary-btn">清空</button>
+            </div>
+
+            <div class="output-area">
+                <label for="result-text">转换结果:</label>
+                <textarea id="result-text" readonly placeholder="转换结果将显示在这里..."></textarea>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <!-- 页脚内容保持不变 -->
+            <div class="footer-col">
+                <h3>Suwos Tools</h3>
+                <p>让工具更懂你</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="reaction-test.html">反应速度测试</a></li>
+                    <li><a href="converter.html">编码转换器</a></li>
+                    <li><a href="rollcall.html">班级点名系统</a></li>
+                    <li><a href="index.html#about">关于我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>资源</h4>
+                <ul>
+                    <li><a href="#">使用条款</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li><a href="mailto:support@suwos.example.com">support@suwos.example.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Suwos Tools. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script src="converter.js"></script>
+</body>
+</html>

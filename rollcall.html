@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>班级点名系统 - Suwos Tools</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="theme.js" defer></script>
+</head>
+<body>
+    <!-- 导航栏（保持一致） -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Suwos Tools</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="reaction-test.html">反应速度测试</a></li>
+                <li><a href="#">更多工具 <i class="arrow down"></i></a>
+                    <ul class="dropdown">
+                        <li><a href="converter.html">编码转换器</a></li>
+                        <li><a href="rollcall.html">班级点名系统</a></li> <!-- 新增工具 -->
+                    </ul>
+                </li>
+                <li><a href="index.html#about">关于我们</a></li>
+            </ul>
+            <!-- 主题切换按钮 -->
+            <div class="theme-toggle">
+                <button id="theme-btn" class="btn theme-btn">
+                    <i class="theme-icon">🌙</i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+<!-- 主要内容区 -->
+<main class="container tool-container">
+    <header class="tool-header">
+        <h1>班级点名系统</h1>
+        <p>支持导入名单、随机点名、手动切换，高效完成课堂点名</p>
+    </header>
+
+    <section class="rollcall-tool">
+        <!-- 名单导入区域（导入后隐藏） -->
+        <div class="import-section" id="import-section">
+            <h3>导入班级名单</h3>
+            <div class="import-options">
+                <div class="option-card">
+                    <label for="name-textarea">手动输入（一行一个名字）：</label>
+                    <textarea id="name-textarea" placeholder="张三&#10;李四&#10;王五&#10;..."></textarea>
+                    <button id="import-manual" class="btn primary-btn">导入名单</button>
+                </div>
+                <div class="option-card">
+                    <label for="name-file">上传文件（TXT格式，一行一个名字）：</label>
+                    <input type="file" id="name-file" accept=".txt" class="file-input">
+                    <button id="import-file" class="btn secondary-btn">读取文件</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 全屏点名模式（导入后显示） -->
+        <div class="fullscreen-rollcall" id="fullscreen-rollcall" style="display: none;">
+            <!-- 顶部控制栏（精简） -->
+            <div class="fullscreen-controls">
+                <button id="back-to-import" class="btn secondary-btn">返回名单</button>
+                <button id="fullscreen-random" class="btn primary-btn">随机点名</button>
+                <button id="fullscreen-reset" class="btn secondary-btn">重置</button>
+            </div>
+
+            <!-- 核心点名显示区（全屏沾满） -->
+            <div class="fullscreen-display">
+                <span id="fullscreen-current-name">准备点名</span>
+            </div>
+
+            <!-- 底部状态控制栏（精简） -->
+            <div class="fullscreen-status">
+                <button id="fullscreen-present" class="btn" style="background-color: #4caf50;">已到</button>
+                <button id="fullscreen-prev" class="btn secondary-btn">上一个</button>
+                <button id="fullscreen-next" class="btn secondary-btn">下一个</button>
+                <button id="fullscreen-absent" class="btn" style="background-color: #f44336;">缺席</button>
+                <button id="fullscreen-leave" class="btn" style="background-color: #9c27b0;">请假</button>
+                <button id="fullscreen-late" class="btn" style="background-color: #ff9800;">迟到</button>
+            </div>
+
+            <!-- 点名记录按钮（悬浮显示） -->
+            <button id="show-record" class="btn secondary-btn float-btn">点名记录</button>
+        </div>
+
+        <!-- 点名记录区域（默认隐藏，点击按钮显示） -->
+        <div class="record-section" id="record-section" style="display: none;">
+            <div class="record-header">
+                <h3>点名记录</h3>
+                <button id="hide-record" class="btn secondary-btn">关闭记录</button>
+            </div>
+            <div class="record-stats">
+                <span>总人数：<strong id="total-count">0</strong></span>
+                <span>已到：<strong id="present-count">0</strong></span>
+                <span>缺席：<strong id="absent-count">0</strong></span>
+                <span>请假：<strong id="leave-count">0</strong></span>
+                <span>迟到：<strong id="late-count">0</strong></span>
+                <span>未点名：<strong id="pending-count">0</strong></span>
+            </div>
+            <div class="name-list">
+                <ul id="name-list-ul"></ul>
+            </div>
+            <button id="export-record" class="btn secondary-btn">导出点名记录</button>
+        </div>
+    </section>
+</main>
+
+    <!-- 页脚（保持一致） -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>Suwos Tools</h3>
+                <p>让工具更懂你</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="reaction-test.html">反应速度测试</a></li>
+                    <li><a href="converter.html">编码转换器</a></li>
+                    <li><a href="rollcall.html">班级点名系统</a></li>
+                    <li><a href="index.html#about">关于我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>资源</h4>
+                <ul>
+                    <li><a href="#">使用条款</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li><a href="mailto:support@suwos.example.com">support@suwos.example.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Suwos Tools. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script src="rollcall.js"></script>
+</body>
+</html>

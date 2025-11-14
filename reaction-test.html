@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>反应速度测试 - Suwos Tools</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+<script src="theme.js" defer></script>
+</head>
+<!-- 使用 full-screen-body 类来应用全屏样式 -->
+<body class="full-screen-body"> 
+    <!-- 导航栏 (初始状态为隐藏) -->
+    <nav class="navbar test-nav">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Suwos Tools</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li class="active"><a href="reaction-test.html">反应速度测试</a></li>
+                <li><a href="#">更多工具 <i class="arrow down"></i></a>
+                    <ul class="dropdown">
+                        <li><a href="converter.html">编码转换器</a></li>
+                        <li><a href="rollcall.html">班级点名系统</a></li>
+                        <li><a href="#">工具开发中...</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#about">关于我们</a></li>
+            </ul>
+<!-- 在 .nav-container 中添加（所有页面都要加） -->
+<div class="theme-toggle">
+    <button id="theme-btn" class="btn theme-btn">
+        <i class="theme-icon">🌙</i>
+    </button>
+</div>
+        </div>
+    </nav>
+
+    <!-- 测试区域将铺满整个屏幕 -->
+    <div id="test-area" class="test-area">
+        <div id="status">点击下方按钮开始测试</div>
+        <button id="start-btn" class="btn start-btn">开始测试</button>
+    </div>
+
+    <!-- 结果弹窗 (初始隐藏) -->
+    <div id="result-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>测试结果</h2>
+            <div id="modal-reaction-time">-- ms</div>
+            <div id="modal-stats">
+                <div class="stat-item">
+                    <span class="stat-label">最快反应:</span>
+                    <span id="modal-best-time">-- ms</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">平均反应:</span>
+                    <span id="modal-avg-time">-- ms</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">测试次数:</span>
+                    <span id="modal-test-count">0</span>
+                </div>
+            </div>
+            <button id="modal-ok-btn" class="btn">继续测试</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
