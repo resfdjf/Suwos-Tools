@@ -24,6 +24,8 @@ if (currentPage === 'reaction-test.html') {
         let totalReactionTime = 0;
         let bestTime = Infinity;
         let isWaiting = false;
+        // 可配置的测试次数限制
+        const MAX_TESTS = 10;
 
         // --- 导航栏控制 ---
         const body = document.body;
@@ -36,6 +38,15 @@ if (currentPage === 'reaction-test.html') {
             resultModal.style.display = 'block';
             // 弹窗打开时，隐藏导航栏
             body.classList.remove('show-nav');
+            
+            // 如果达到最大测试次数，显示完成信息
+            if (testCount >= MAX_TESTS) {
+                document.querySelector('.modal-title').textContent = '测试完成！';
+                modalOkBtn.textContent = '重新开始';
+            } else {
+                document.querySelector('.modal-title').textContent = '测试结果';
+                modalOkBtn.textContent = '继续测试';
+            }
         }
 
         // 关闭弹窗的函数
@@ -43,13 +54,22 @@ if (currentPage === 'reaction-test.html') {
             resultModal.style.display = 'none';
         }
         
-        // 开始新一轮测试的函数
-        function resetTest() {
+        // 重置测试函数
+        function resetTest(restartAll = false) {
             closeModal(); // 先关闭弹窗
+            
+            // 如果需要完全重置（达到最大测试次数后）
+            if (restartAll) {
+                testCount = 0;
+                totalReactionTime = 0;
+                bestTime = Infinity;
+            }
             
             // 重置测试区域状态
             testArea.classList.remove('active', 'waiting');
-            statusDisplay.textContent = '点击下方按钮开始测试';
+            statusDisplay.textContent = testCount >= MAX_TESTS 
+                ? '测试已完成！点击下方按钮重新开始' 
+                : '点击下方按钮开始测试';
             startBtn.style.display = 'block'; // 重新显示开始按钮
             startTime = null; // 重置开始时间
 
@@ -75,20 +95,20 @@ if (currentPage === 'reaction-test.html') {
             statusDisplay.textContent = '准备中...请等待颜色变化';
             
             // 随机等待时间（1-3秒）
-            const waitTime = Math.floor(Math.random() * 2000) + 1000;
+            const waitTime = Math.floor(Math.random() * 2000) + 1000; // 1-3秒
             
             setTimeout(() => {
                 // 开始测试
                 isWaiting = false;
                 testArea.classList.remove('waiting');
                 testArea.classList.add('active');
-                statusDisplay.textContent = '点击！';
+                statusDisplay.textContent = '点击或按空格键！';
                 startTime = Date.now();
             }, waitTime);
         }
 
-        // 测试区域点击事件
-        testArea.addEventListener('click', () => {
+        // 处理反应的函数（点击或按键）
+        function handleReaction() {
             // 如果正在等待或测试未开始，则点击无效
             if (isWaiting || !startTime) {
                 // 如果在非等待状态下点击了灰色区域，提示重新开始
@@ -122,18 +142,33 @@ if (currentPage === 'reaction-test.html') {
             
             // 打开弹窗
             openModal();
+        }
+        
+        // 测试区域点击事件
+        testArea.addEventListener('click', handleReaction);
+        
+        // 支持空格键反应
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault(); // 防止页面滚动
+                handleReaction();
+            }
         });
         
         // 点击弹窗的关闭按钮
-        closeBtn.addEventListener('click', resetTest);
+        closeBtn.addEventListener('click', () => {
+            resetTest(testCount >= MAX_TESTS);
+        });
         
-        // 点击弹窗的"继续测试"按钮
-        modalOkBtn.addEventListener('click', resetTest);
+        // 点击弹窗的按钮
+        modalOkBtn.addEventListener('click', () => {
+            resetTest(testCount >= MAX_TESTS);
+        });
         
         // 点击弹窗外部区域关闭弹窗
         window.addEventListener('click', (event) => {
             if (event.target === resultModal) {
-                resetTest();
+                resetTest(testCount >= MAX_TESTS);
             }
         });
     });
